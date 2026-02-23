@@ -1,12 +1,45 @@
-public class TestScoreAverage {
-    public static void main(String[] args) {
-        double[] scores = {75.2, 91.0, 84.8};
+import java.util.Scanner;
 
-        double average = (scores[0] + scores[1] + scores[2] ) / 3;
-        System.out.println("The average score is: " + average);
-        System.out.println("Test Score 1: " + scores[0]);
-        System.out.println("Test Score 2: " + scores[1]);
-        System.out.println("Test Score 3: " + scores[2]);
-        System.out.println("Average Score: " + average);
+public class Tests {
+
+    private double average;
+    private int count;
+
+    public Tests() {
+        average = 0.0;
+        count = 0;
+    }
+
+    public void getAverage() {
+
+        Scanner input = new Scanner(System.in);
+        double sum = 0.0;
+        count = 0;
+
+        System.out.println("Enter test scores (-1 to quit):");
+
+        double score = input.nextDouble();   // prime the loop
+
+        while (score != -1) {
+            sum += score;
+            count++;
+            score = input.nextDouble();
+        }
+
+        if (count > 0) {
+            average = sum / count;
+        } else {
+            average = Double.NaN;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "The average of the %d score%s entered is %.2f.",
+                count,
+                (count == 1 ? "" : "s"),
+                average
+        );
     }
 }
