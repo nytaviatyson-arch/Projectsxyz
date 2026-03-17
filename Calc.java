@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Calc {
 
     private double num1;
@@ -33,10 +35,15 @@ public class Calc {
             throw new ArithmeticException("Cannot divide by zero");
         }
     }
-    public String toString() {
-        return "Calc{" +
-                "num1=" + num1 +
-                ", num2=" + num2 +
-                '}';
-    }
+
+public double getValidNumber(Scanner scan, String message) {
+        while (true) {
+            System.out.println(message);
+            if (scan.hasNextDouble()) {
+                return scan.nextDouble();
+            } else {
+                System.out.println("Please enter a numeric value.");
+                scan.next();
+            }
+        }
 }

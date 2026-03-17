@@ -3,6 +3,7 @@
 //add, subtract, multiply, divide
 //user is prompted for input
 import java.util.Scanner;
+
 public class Runner {
     public static void main(String[] args){
         //instantiate a Calc object
